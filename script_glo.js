@@ -1,28 +1,64 @@
 "use strict";
 
-console.log(typeof String(true));
-console.log(typeof String(undefined));
-console.log(typeof String(null));
-console.log(typeof String("123"));
-console.log(typeof String(123));
+let a = 5;
 
-console.log(typeof Number(true));
-console.log(typeof Number(undefined));
-console.log(typeof Number(null));
-console.log(typeof Number("123"));
-console.log(typeof Number(123));
+function one1(c, d) {
+  // lexicalEnvironment = {с :3, d: undefined}
+  let a = 10;
+  // lexicalEnvironment = {a:10, с :3, d: undefined}
+  console.log(a, c, d);
 
-console.log(5 + "5");
-console.log(5 - "5");
-console.log(5 * "5");
-console.log(5 * "5");
+  function two2() {
+    // lexicalEnvironment = {leer}
+    // Scope = {a:10} aber auch = {a:10, с :3, d: undefined} von den Eltern
+    let a = 15;
+    console.log(a);
+  }
+  two2();
+}
+one1(3);
 
-console.log(5 / "5");
+let y = 5;
+function one11(x) {
+  console.log(x + y);
+}
+function two22() {
+  let y = 15;
+  one11(3);
+}
 
-console.log(5 == "5");
-console.log(5 === "5");
-//let answer = confirm('Are you 18 years old?')
-//console.log(answer);
+one11(3);
 
-//let answer2 = prompt('How old are you?', '18 years old') //  2.parametr- default
-// //console.log(answer2); // answer ist a string always
+//..замыкание  function in function
+// function one(x) {
+//   function two() {
+//     const a = +prompt("введите число");
+//     x--;
+//     console.log(a);
+//     console.log(x);
+//     console.dir(two);
+
+//     if (a !== x) {
+//       two();
+//     }
+//   }
+//   two();
+// }
+
+// one(10);
+
+function pathGenerator(url) {
+  return function (imageName) {
+    return url + imageName;
+  };
+}
+
+let uriToIcons = pathGenerator(
+  "https://www.lifewire.com/copy-image-web-address-url-1174175/"
+);
+let uriToImages = pathGenerator(
+  "https://www.lifewire.com/copy-image-web-address-url-1174175/"
+);
+
+console.log(uriToIcons("clock.svg"));
+console.log(uriToImages("block.svg"));
