@@ -1,28 +1,49 @@
 "use strict";
 
-console.log(typeof String(true));
-console.log(typeof String(undefined));
-console.log(typeof String(null));
-console.log(typeof String("123"));
-console.log(typeof String(123));
+let array1 = [1, 2, , 4, 5];
 
-console.log(typeof Number(true));
-console.log(typeof Number(undefined));
-console.log(typeof Number(null));
-console.log(typeof Number("123"));
-console.log(typeof Number(123));
+console.log(array1);
+console.log(array1[2]);
+array1[0] = "cat";
+console.log(array1.length);
+array1[10] = "dogt";
+array1.length = 120; //länge bestimmen
 
-console.log(5 + "5");
-console.log(5 - "5");
+let array = ["Apple", "Orange", "Banana"];
 
-console.log(5 * "5");
+array.push("Kiwi", "Mango");
+array.unshift("Papaya", "Strawberry");
 
-console.log(5 / "5");
+array.pop("", "");
+array.shift("");
+console.log(array);
+array.sort();
+array.reverse();
+console.log(array.join(", ")); // only console, doesnt change massiv
 
-console.log(5 == "5");
-console.log(5 === "5");
-//let answer = confirm('Are you 18 years old?')
-//console.log(answer);
+let obj = {
+  name: "Alex",
+  age: 23,
+  isStudent: false,
+};
+for (let key in obj) {
+  console.log("Ключ:" + key + " " + "Значение:" + obj[key]);
+}
 
-//let answer2 = prompt('How old are you?', '18 years old') //  2.parametr- default
-// //console.log(answer2); // answer ist a string always
+console.log(Object.keys(obj));
+
+let array2 = [1, 2, 3, 4, "cat"];
+for (let key of array2) {
+  console.log(key);
+}
+for (let key in array2) {
+  console.log(key);
+}
+console.log(array2);
+delete array2[2];
+
+const func = function (a, b, c) {
+  console.log(a + b + c);
+  console.log(arguments);
+};
+func(3, 6, 9);
