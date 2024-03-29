@@ -1,64 +1,37 @@
-"use strict";
+"use strickt";
+let key = "city";
+let city = "Minsk";
 
-let a = 5;
+let person = {
+  name: "Alex",
+  age: 33,
+  say: function (str) {
+    console.log(str);
+  },
+};
 
-function one1(c, d) {
-  // lexicalEnvironment = {с :3, d: undefined}
-  let a = 10;
-  // lexicalEnvironment = {a:10, с :3, d: undefined}
-  console.log(a, c, d);
+//let job = new Object();
+//job.position = "Developer";
 
-  function two2() {
-    // lexicalEnvironment = {leer}
-    // Scope = {a:10} aber auch = {a:10, с :3, d: undefined} von den Eltern
-    let a = 15;
-    console.log(a);
-  }
-  two2();
-}
-one1(3);
+let job = {
+  position: " middle Developer",
+  job: {
+    salary: 1000000,
+    position: "senior developer",
+  },
+};
 
-let y = 5;
-function one11(x) {
-  console.log(x + y);
-}
-function two22() {
-  let y = 15;
-  one11(3);
-}
+person.job = job;
+person.job.position = "senior developer";
 
-one11(3);
+// person.say = function (str) {
+//   console.log(str);
+// };
 
-//..замыкание  function in function
-// function one(x) {
-//   function two() {
-//     const a = +prompt("введите число");
-//     x--;
-//     console.log(a);
-//     console.log(x);
-//     console.dir(two);
-
-//     if (a !== x) {
-//       two();
-//     }
-//   }
-//   two();
-// }
-
-// one(10);
-
-function pathGenerator(url) {
-  return function (imageName) {
-    return url + imageName;
-  };
-}
-
-let uriToIcons = pathGenerator(
-  "https://www.lifewire.com/copy-image-web-address-url-1174175/"
-);
-let uriToImages = pathGenerator(
-  "https://www.lifewire.com/copy-image-web-address-url-1174175/"
-);
-
-console.log(uriToIcons("clock.svg"));
-console.log(uriToImages("block.svg"));
+person.say("hello world");
+person[key] = city;
+console.log(person);
+console.log(job);
+console.log(person.age);
+console.log(person["age"]);
+console.log(person.job === job);
