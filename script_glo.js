@@ -1,16 +1,26 @@
 "use strict";
-
 const books = [
-  {id: 0, name:'One', author: 'Ivanov', price: 1000
-}
-{id: 1, name:'Two', author: 'Ivanov1', price: 1100
-}
-{id: 2, name:'Three', author: 'Ivanov2', price: 1200
-}
-{id: 3, name:'Four', author: 'Ivanov'3, price: 1300
-}
-]
+  { id: 0, name: " Zero", author: "Ivanov", price: 1000 },
+  { id: 1, name: "One", author: "Ivanov1", price: 1100 },
+  { id: 2, name: "Two", author: "Ivanov2", price: 1200 },
+  { id: 3, name: "Three", author: "Ivanov3", price: 1300 },
+];
 
+// const newArr = books.concat({
+//   id: 5,
+//   name: "Five",
+//   author: "Ivanov5",
+//   price: 1300,
+// });
+// console.log(newArr);
+//
+// books.splice(2, 3,  { id: 3, name: "Three", author: "Ivanov3", price: 1300 },
+//,  { id: 3, name: "Three", author: "Ivanov3", price: 1300 },
+//)
+// console.log(books);
+
+const newArr = books.slice(0, 3);
+console.log(newArr);
 
 let array1 = [1, 2, , 4, 5];
 
