@@ -1,5 +1,17 @@
 "use strict";
 
+const books = [
+  {id: 0, name:'One', author: 'Ivanov', price: 1000
+}
+{id: 1, name:'Two', author: 'Ivanov1', price: 1100
+}
+{id: 2, name:'Three', author: 'Ivanov2', price: 1200
+}
+{id: 3, name:'Four', author: 'Ivanov'3, price: 1300
+}
+]
+
+
 let array1 = [1, 2, , 4, 5];
 
 console.log(array1);
