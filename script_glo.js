@@ -2,14 +2,6 @@
 
 const lists = document.querySelectorAll('.list')
 const elems = document.querySelectorAll('.elem')
+const title =document.getElementById('title')
 
-console.log(lists)
-console.log(elems)
-
-const newElem = document.createElement('li')
-
-newElem.classList.add('elem')
-newElem.textContent = "step 9 create Element"
-lists[1].append(newElem)
-
-console.log(newElem)
+console.log(title)
