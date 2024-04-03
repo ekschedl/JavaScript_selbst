@@ -1,28 +1,41 @@
 "use strict";
 
-console.log(typeof String(true));
-console.log(typeof String(undefined));
-console.log(typeof String(null));
-console.log(typeof String("123"));
-console.log(typeof String(123));
+const lists = document.querySelectorAll('.list')
+const elems = document.querySelectorAll('.elem')
 
-console.log(typeof Number(true));
-console.log(typeof Number(undefined));
-console.log(typeof Number(null));
-console.log(typeof Number("123"));
-console.log(typeof Number(123));
+console.log(lists)
+console.log(elems)
 
-console.log(5 + "5");
-console.log(5 - "5");
+// elems[2].remove()
+// elems[4].remove()
 
-console.log(5 * "5");
+console.log(elems)
 
-console.log(5 / "5");
+// append помещает всегда в конец списка
+// lists[1].append(elems[2])//     забирает из исходного места и перемещаетб то есть remove  здесь необязательно
+// lists[1].append(elems[4]) // помещает всегда в конец списка
+// lists[1].append(elems[3]) // помещает всегда в конец списка
 
-console.log(5 == "5");
-console.log(5 === "5");
-//let answer = confirm('Are you 18 years old?')
-//console.log(answer);
+// // prepend помещает всегда в начало списка
+// lists[1].prepend(elems[5]) // 
+// lists[1].prepend('prepend zeile') // 
 
-//let answer2 = prompt('How old are you?', '18 years old') //  2.parametr- default
-// //console.log(answer2); // answer ist a string always
+// // позволяют  вставить после определенного элемента, здесь поменял местами
+// lists[0].before(lists[1]) // 
+// elems[3].before(elems[0]) // 
+// elems[3].after(elems[5]) //
+
+// lists[0].after(lists[1]) 
+
+// // replaceWith заменяет один элемент другим
+// elems[4].replaceWith('Привет  replaceWith 4') //
+
+const cloneElem = elems[3].cloneNode(true)
+
+cloneElem.classList.add('green-color')
+console.dir(cloneElem)
+cloneElem.innerHTML ="<strong>cloneElem 3 - tra la la und .innerHTML strong </strong>" 
+// cloneElem.innerHTML =" "
+
+lists[1].append(cloneElem)/
+console.log(cloneElem);
