@@ -1,28 +1,72 @@
 "use strict";
 
-console.log(typeof String(true));
-console.log(typeof String(undefined));
-console.log(typeof String(null));
-console.log(typeof String("123"));
-console.log(typeof String(123));
+// const person1 = {
+//     name: "vlad"
+// }
+// const person2 = {
+//     name: "nina"
+// }
+// const person3 = {
+//     name: "olja"
+// }
 
-console.log(typeof Number(true));
-console.log(typeof Number(undefined));
-console.log(typeof Number(null));
-console.log(typeof Number("123"));
-console.log(typeof Number(123));
 
-console.log(5 + "5");
-console.log(5 - "5");
+// для этого пишем фнукцию конструктор/ с большой буквы
+const Person = function(name) {
+    this.name = name
 
-console.log(5 * "5");
+    const age =33
+    //D ТАКой записы через метод методы не равны! console.log(person1.sayHello === person3.sayHello).. false
+    this.sayHello = function (){
+        console.log("Hi, i am " +   this.name)
+        console.log("i am  " +   age + " years old")
+        }
+}
+ //в ТАКой записы через prototype  методы равны! console.log(person1.sayHello === person3.sayHello) true , но нет скрытых перемен
+// Person.prototype.sayHello = function (){
+// console.log("Hi, i am " +   this.name)
+// }
 
-console.log(5 / "5");
+const person1 = new Person("vlad") //всегда вызывается через оператора new
+const person2 = new Person("nina") //даже если  не будет аргумента обект будет сосздат и name undefined
+const person3 = new Person("olja")
 
-console.log(5 == "5");
-console.log(5 === "5");
-//let answer = confirm('Are you 18 years old?')
-//console.log(answer);
+const person4 ={
+    name :"Anna"
+}
 
-//let answer2 = prompt('How old are you?', '18 years old') //  2.parametr- default
-// //console.log(answer2); // answer ist a string always
+console.log(person1)
+console.log(person2)
+console.log(person3)
+console.log(person4)
+person1.sayHello()
+console.log(person1.sayHello === person3.sayHello)
+
+const Person1 = function(name) {
+    this.name = name
+}
+
+
+
+Person1.prototype.sayHello = function (){
+console.log("Hi too, i am " +   this.name)
+}
+
+const person5 = new Person1("vlad1") 
+
+console.log(person5)
+console.log(Person1.prototype.isPrototypeOf(person5)), // =console.log(person5 instanceof Person1)
+console.log(person5 instanceof Person1)
+
+
+// цепочка наследованияЮ
+ const Student = function(name, role){
+    Person1.call(this, name)
+    this.role = role
+
+ }
+
+Student.prototype =Object.create(Person1.prototype)
+Student.prototype.construktor= Student
+ const newStudent = new Student('Vladislav', "student")
+ console.log(newStudent)
