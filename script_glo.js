@@ -1,28 +1,44 @@
-"use strict";
+"use strict"; //ES6 2015 viele Neugkeiten
+var v =10
+//let a=10 zeigt nicht in winddow
+console.log(window)
+// var глобальная видимость
+//let const в области видимости функции
+for (var a = 0; a < 5; a++) {
+    console.log(window)
+    console.log(a)
+    setTimeout(() =>{
+        console.log(a)
+    })
+}
 
-console.log(typeof String(true));
-console.log(typeof String(undefined));
-console.log(typeof String(null));
-console.log(typeof String("123"));
-console.log(typeof String(123));
+for (let a = 0; a < 5; a++) {
+    console.log(window)
+    console.log(a)
+    setTimeout(() =>{
+        console.log(a)
+    })
+}
 
-console.log(typeof Number(true));
-console.log(typeof Number(undefined));
-console.log(typeof Number(null));
-console.log(typeof Number("123"));
-console.log(typeof Number(123));
 
-console.log(5 + "5");
-console.log(5 - "5");
+const user= {
+    name:'Alex',
+    age:34,
+    say: function(){
+        const foo = (name, age =20) => {
+            console.log('Привет, меня зовут ' + name + '!');
+            console.log('Мне ' + age + 'лет');
+            console.log('Привет, меня зовут ' + name + '!\n' + 
+            'Мне ' + age + 'лет');
+            console.log(`Привет, меня зовут ${name} !
+Мне ${age + 1}  года`);
+            
+        }
+        foo('Alex', 34)
+    }
+}
 
-console.log(5 * "5");
+user.say()
 
-console.log(5 / "5");
 
-console.log(5 == "5");
-console.log(5 === "5");
-//let answer = confirm('Are you 18 years old?')
-//console.log(answer);
 
-//let answer2 = prompt('How old are you?', '18 years old') //  2.parametr- default
-// //console.log(answer2); // answer ist a string always
