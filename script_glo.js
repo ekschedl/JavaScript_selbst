@@ -1,28 +1,80 @@
 "use strict";
 
-console.log(typeof String(true));
-console.log(typeof String(undefined));
-console.log(typeof String(null));
-console.log(typeof String("123"));
-console.log(typeof String(123));
+// const Person1 = function(name, age) {
+//     this.name = name
+//     this.age = age
+// }
 
-console.log(typeof Number(true));
-console.log(typeof Number(undefined));
-console.log(typeof Number(null));
-console.log(typeof Number("123"));
-console.log(typeof Number(123));
+// Person1.prototype.sayHello = function(){
+//     console.log(`Привет меня зовут ${this.name}`);
+// }
+// const person1 = new Person1( 'Vlad', 23)
+// person1.sayHello()
+// console.log(person1)
 
-console.log(5 + "5");
-console.log(5 - "5");
+class Person{
+    constructor(name, age){
+    this.name = name
+    this.age = age
+    Person.incrementCount()
+    }
 
-console.log(5 * "5");
+    static count = 0//b доступна  общему классь,
+    //но экземплярам класса не доступна  console.log(person)// undefined
+    //onsole.log(Person.count) // 0
+    //
+static getCount(){
+    return Person.count
+}
+static incrementCount(){
+    Person.count++
 
-console.log(5 / "5");
+}
+    sayHello (){
+        console.log(`Привет меня зовут ${this.name}`);      
+}
+        
+}
+const person =new Person('Vlad', 23)
+console.log(JSON.stringify(person).length);
+const person1 =new Person('Vlad', 23)
+const person2 =new Person('Vlad', 23)
+const person3 =new Person('Vlad', 23)
+person.sayHello()
+console.log(Person.getCount());
+console.log(person);
 
-console.log(5 == "5");
-console.log(5 === "5");
-//let answer = confirm('Are you 18 years old?')
-//console.log(answer);
 
-//let answer2 = prompt('How old are you?', '18 years old') //  2.parametr- default
-// //console.log(answer2); // answer ist a string always
+class FrontEndDev extends Person {
+constructor(name, age, skills =[]) {
+    super(name, age)// für die verbindung von zwei constructors
+    this._skills = skills // нижнее подчеркивание говорит нельзч изменять б это для чтения get skills
+
+}
+
+get skills(){
+    return this._skills
+}
+
+set skills(str){
+    console.log(str);
+    this.skills.push(str)
+}
+
+test(){
+    super.sayHello// метод принадлежит родителю
+}
+}
+//super  - это связываеще звено между классом наследником и классом прототипом / ч
+// через него можно обращатсья к методам родительского класса
+const dev =new FrontEndDev('vlad', 23)
+console.log(dev);
+dev.sayHello()
+dev.test()
+console.log(dev.skills);
+dev.skills = 'первое свойство'
+dev.skills = 'второе свойство'
+dev.skills = 'третье свойство'
+console.log(dev);
+
+
