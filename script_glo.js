@@ -77,4 +77,23 @@ dev.skills = 'второе свойство'
 dev.skills = 'третье свойство'
 console.log(dev);
 
+const sum = (a, b, c, ...params) =>{
+    console.log(a)
+    console.log(b)
+console.log(c)
+console.log(params)
+}
+sum(1,2,3,4,5,6)
 
+
+
+const sum2 = (...params) =>{
+    return params.reduce((sum, num) => sum + num)
+
+}
+console.log(sum2(23, 44, 12, 17))
+
+//SPREAD чтобы соединить два массива
+const firstAr =[1,2,4,4]
+const secondAr =[5,6,7,8]
+console.log([123, 333,...firstAr, 555, ...secondAr]);
