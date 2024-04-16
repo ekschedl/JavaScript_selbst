@@ -1,0 +1,3 @@
+.man, .airplane {
+    position: relative; /* или position: absolute; */
+}
