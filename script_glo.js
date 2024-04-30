@@ -1,77 +1,50 @@
-"use strict";
+// Функция для получения данных об автомобилях
+const getCarsData = () => {
+    return new Promise((resolve, reject) => {
+        fetch('cars.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка при получении данных об автомобилях');
+                }
+                return response.json();
+            })
+            .then(data => {
+                resolve(data.cars);
+            })
+            .catch(error => {
+                reject(error.message);
+            });
+    });
+};
 
-//асинхронный код
-console.log(1);
-setTimeout(() =>{
-    console.log(2);
-}, 2000)
+// Функция для отображения информации об автомобиле
+const displayCarInfo = (car) => {
+    const infoContainer = document.getElementById('carInfo');
+    infoContainer.innerHTML = `
+        <h2> Тачка: ${car.brand} ${car.model}</h2>
+        <p> Цена: ${car.price} $</p>
+    `;
+};
 
-setTimeout(() =>{
-    console.log(4);
-}, 1000)
+// Функция для обработки выбора автомобиля
+const handleCarSelection = (event) => {
+    const selectedCarValue = event.target.value;
 
-
-
-
-//promise / resulte в случае успехаб reject  в случае неудачи отрабатывае
-const promise = (num)=> {
-    return new Promise((resolve, reject)=> {
-        setTimeout(()=>{
-        
-            if(num>10){
-                resolve(num)
-             } else {
-                reject("Some error")
-             }
-        }, 2000)
+    // Получение данных об автомобилях и отображение информации о выбранном автомобиле
+    getCarsData()
+        .then(cars => {
+            const selectedCar = cars.find(car => car.brand === selectedCarValue);
+            if (selectedCar) {
+                displayCarInfo(selectedCar);
+            } else {
+                throw new Error('Автомобиль не найден');
+            }
         })
-}
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
+};
 
-promise(15)
-//    // then срабатывает  при     resolve
-//    .then((data) => data +10)
-//    .then((newData) => {
-//         console.log(newData);
-// })
-//    // catch vtnод для перехватат ошибок
-//    .catch((errorMess) => console.log(errorMess))
-// //    .finally(()=> console.log("finaly"))
-
-//___
-// .then((data) => {
-//     console.log(data);
-//     return new Promise((resolve, reject) => {
-//         setTimeout(()=>{
-//         resolve(data+10)
-//         }, 2000)
-//     })
-// })
-// .then((data)=> {
-// console.log(data);
-// })
-// .catch((errorMess) => console.log(errorMess))
-//________
-
-
-//Example2
-const promise2 = (num)=> {
-    return new Promise((resolve, reject)=> {
-        setTimeout(()=>{
-        
-            if(num>10){
-                resolve(num)
-             } else {
-                reject(num)
-             }
-        }, 2000)
-        })
-}
-
-const one=promise2(5)
-const two=promise2(25)
-const three=promise2(35)
-Promise.all([one, two, three])
-.then((data)=>{
-    console.log(data);
-})
-.catch(error => console.log(error))
+// Добавление обработчика события выбора автомобиля
+const selectElement = document.getElementById('carSelect');
+selectElement.addEventListener('change', handleCarSelection)
