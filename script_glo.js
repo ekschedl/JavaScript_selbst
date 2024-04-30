@@ -1,77 +1,58 @@
 "use strict";
 
-//асинхронный код
-console.log(1);
-setTimeout(() =>{
-    console.log(2);
-}, 2000)
+// Функция для получения данных о курсе валют
+const fetchExchangeRates = () => {
+    const YOUR_APP_ID = '32452334f0104278abee33239f130f74'; // Замените 'YOUR_APP_ID' на ваш ключ доступа к API
+    const url = `https://openexchangerates.org/api/latest.json?app_id=${YOUR_APP_ID}`;
+  
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка при получении данных о курсе валют');
+                }
+                return response.json();
+            })
+            .then(data => {
+                addEventListeners(data.rates.USD, data.rates.EUR);
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+            });
+    };
+    
+    fetchExchangeRates();
 
-setTimeout(() =>{
-    console.log(4);
-}, 1000)
+// Добавление обработчиков событий
+const addEventListeners = (usdRate, eurRate) => {
+    const currencySelect = document.getElementById('currencySelect');
+    const amountInput = document.getElementById('amountInput');
 
-
-
-
-//promise / resulte в случае успехаб reject  в случае неудачи отрабатывае
-const promise = (num)=> {
-    return new Promise((resolve, reject)=> {
-        setTimeout(()=>{
+    const handleInput = () => {
+        const selectedCurrency = currencySelect.value;
+        const amount = parseFloat(amountInput.value);
         
-            if(num>10){
-                resolve(num)
-             } else {
-                reject("Some error")
-             }
-        }, 2000)
-        })
-}
+        if (isNaN(amount)) {
+            document.getElementById('result').textContent = 'Введите корректное число';
+            return;
+        }
 
-promise(15)
-//    // then срабатывает  при     resolve
-//    .then((data) => data +10)
-//    .then((newData) => {
-//         console.log(newData);
-// })
-//    // catch vtnод для перехватат ошибок
-//    .catch((errorMess) => console.log(errorMess))
-// //    .finally(()=> console.log("finaly"))
+        if (selectedCurrency === 'USD') {
+            convertToRub(amount, usdRate);
+        } else if (selectedCurrency === 'EUR') {
+            convertToRub(amount, eurRate)
+        }
+    };
 
-//___
-// .then((data) => {
-//     console.log(data);
-//     return new Promise((resolve, reject) => {
-//         setTimeout(()=>{
-//         resolve(data+10)
-//         }, 2000)
-//     })
-// })
-// .then((data)=> {
-// console.log(data);
-// })
-// .catch((errorMess) => console.log(errorMess))
-//________
+    currencySelect.addEventListener('change', handleInput);
+    amountInput.addEventListener('input', handleInput);
+};
 
+// Функция для конвертации валюты в рубли
+const convertToRub = (amount, rate) => {
+    const resultContainer = document.getElementById('result');
+    const result = amount * rate;
+    resultContainer.textContent = `${amount.toFixed(2)} ${rate === usdRate ? 'USD' : 'EUR'} = ${result.toFixed(2)} RUB`;
+};
 
-//Example2
-const promise2 = (num)=> {
-    return new Promise((resolve, reject)=> {
-        setTimeout(()=>{
-        
-            if(num>10){
-                resolve(num)
-             } else {
-                reject(num)
-             }
-        }, 2000)
-        })
-}
-
-const one=promise2(5)
-const two=promise2(25)
-const three=promise2(35)
-Promise.all([one, two, three])
-.then((data)=>{
-    console.log(data);
-})
-.catch(error => console.log(error))
+// Вызов функции для получения данных о курсе валют при загрузке страницы
+fetchExchangeRates();
