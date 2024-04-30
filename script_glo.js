@@ -2,7 +2,7 @@
 
 // Функция для получения данных о курсе валют
 const fetchExchangeRates = () => {
-    const YOUR_APP_ID = '32452334f0104278abee33239f130f74'; // Замените 'YOUR_APP_ID' на ваш ключ доступа к API
+    const YOUR_APP_ID = ''; /
     const url = `https://openexchangerates.org/api/latest.json?app_id=${YOUR_APP_ID}`;
   
         fetch(url)
