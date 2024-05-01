@@ -1,8 +1,8 @@
 
 // index.js
-import { first } from "./modules/first";
+import { render } from "./modules/render";
 import { UserService } from "./modules/usersService";
 
 
 window.userService = new UserService
-first();
+render(userService.users);
