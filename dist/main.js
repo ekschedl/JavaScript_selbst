@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_first__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/first */ \"./src/modules/first.js\");\n\r\n\r\n(0,_modules_first__WEBPACK_IMPORTED_MODULE_0__.first)()\n\n//# sourceURL=webpack://json-sever__lesson/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_first__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/first */ \"./src/modules/first.js\");\n/* harmony import */ var _modules_usersService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/usersService */ \"./src/modules/usersService.js\");\n\r\n// index.js\r\n\r\n\r\n\r\n\r\nwindow.userService = new _modules_usersService__WEBPACK_IMPORTED_MODULE_1__.UserService\r\n;(0,_modules_first__WEBPACK_IMPORTED_MODULE_0__.first)();\n\n//# sourceURL=webpack://json-sever__lesson/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"first\": () => (/* binding */ first)\n/* harmony export */ });\nconst first = () => {\r\n console.log('first');\r\n}\n\n//# sourceURL=webpack://json-sever__lesson/./src/modules/first.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   first: () => (/* binding */ first)\n/* harmony export */ });\n// first.js\r\nconst first = () => {\r\n    userService.logger(); \r\n};\n\n//# sourceURL=webpack://json-sever__lesson/./src/modules/first.js?");
+
+/***/ }),
+
+/***/ "./src/modules/usersService.js":
+/*!*************************************!*\
+  !*** ./src/modules/usersService.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   UserService: () => (/* binding */ UserService)\n/* harmony export */ });\nclass UserService {\n \n    _users =[]\n    get users(){\n        return this._users\n    }\n\n    set users(users){\n        this._users = users\n    }\n    logger(){\n    console.log(this.users);\n    }\n\n   }\n\n\n//# sourceURL=webpack://json-sever__lesson/./src/modules/usersService.js?");
 
 /***/ })
 

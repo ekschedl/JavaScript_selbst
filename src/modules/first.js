@@ -1,3 +1,4 @@
+// first.js
 export const first = () => {
- console.log('first');
-}
+    userService.logger(); 
+};
