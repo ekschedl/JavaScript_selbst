@@ -1,3 +1,7 @@
+// Добавление обработчика события выбора автомобиля
+const selectElement = document.getElementById('carSelect');
+selectElement.addEventListener('change', handleCarSelection)
+
 // Функция для получения данных об автомобилях
 const getCarsData = () => {
     return new Promise((resolve, reject) => {
@@ -45,6 +49,3 @@ const handleCarSelection = (event) => {
         });
 };
 
-// Добавление обработчика события выбора автомобиля
-const selectElement = document.getElementById('carSelect');
-selectElement.addEventListener('change', handleCarSelection)
