@@ -1,31 +1,17 @@
 export class UserService {
- 
-    _users =[
-{
-    id:0,
-    name: "Mark",
-    email: "otto@gmail.com",
-    children: true,
-    permission: false
-},
-{
-    id:1,
-    name: "Jacob",
-    email: "thornton@gmail.com",
-    children: false,
-    permission: true
-}
 
-    ]
-    get users(){
-        return this._users
+
+    getUsers() {
+        return fetch('http://localhost:4545/users').then(res => res.json())
     }
 
-    set users(users){
-        this._users = users
+    addUser(user) {
+        return fetch('http://localhost:4545/users', {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify(user)
+        })
     }
-    logger(){
-    console.log(this.users);
-    }
-
    }

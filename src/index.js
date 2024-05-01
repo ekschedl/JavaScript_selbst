@@ -2,7 +2,12 @@
 // index.js
 import { render } from "./modules/render";
 import { UserService } from "./modules/usersService";
-
+import { addUsers } from "./modules/addUsers";
 
 window.userService = new UserService
-render(userService.users);
+userService.getUsers().then(data => {
+
+    render(data);
+
+})
+addUsers();
