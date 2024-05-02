@@ -43,4 +43,8 @@ export class UserService {
             }
         }).then(res => res.json())
     }
+    filterUsers(filterOption){
+        return fetch(`http://localhost:4545/users?${filterOption}=true`).then(res => res.json())
+
+    }
 }

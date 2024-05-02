@@ -5,6 +5,7 @@ import { addUsers } from "./modules/addUsers";
 import { removeUsers } from "./modules/removeUsers";
 import { changePermission } from "./modules/changePermission";
 import { editUsers } from "./modules/editUsers";
+import { filterUsers } from "./modules/filterUsers";
 
 window.userService = new UserService();
 userService.getUsers().then(data => {
@@ -14,3 +15,4 @@ addUsers();
 removeUsers();
 changePermission();
 editUsers();
+filterUsers();

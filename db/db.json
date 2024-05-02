@@ -4,7 +4,7 @@
       "name": "Jacob13",
       "email": "thornton@gmail.com",
       "children": false,
-      "permission": false,
+      "permission": true,
       "id": "1"
     },
     {
@@ -60,6 +60,20 @@
       "id": "c8bc",
       "name": "Jacob",
       "email": "thornton@gmail.com",
+      "children": false,
+      "permission": false
+    },
+    {
+      "id": "8a21",
+      "name": "katja",
+      "email": "kaaatena@mail.ru",
+      "children": true,
+      "permission": false
+    },
+    {
+      "id": "7422",
+      "name": "katja",
+      "email": "kaaatena@mail.ru",
       "children": false,
       "permission": false
     }

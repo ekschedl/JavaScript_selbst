@@ -1,4 +1,4 @@
-// first.js
+// render.js
 export const render = (users) => {
     const tbody = document.getElementById("table-body");
     tbody.innerHTML = '';
