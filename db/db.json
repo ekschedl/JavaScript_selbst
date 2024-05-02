@@ -1,45 +1,17 @@
 {
   "users": [
     {
-      "id": 0,
-      "name": "Mark",
-      "email": "otto@gmail.com",
-      "children": true,
-      "permission": false
-    },
-    {
-      "id": 1,
+      "id": "1",
       "name": "Jacob",
       "email": "thornton@gmail.com",
       "children": false,
       "permission": true
     },
     {
-      "id": "1cd9",
+      "id": "c0b4",
       "name": "katja",
       "email": "kaaatena@mail.ru",
       "children": false,
-      "permission": false
-    },
-    {
-      "id": "7d23",
-      "name": "katja",
-      "email": "kaaatena@mail.ru",
-      "children": true,
-      "permission": false
-    },
-    {
-      "id": "fa8e",
-      "name": "katja",
-      "email": "kaaatena@mail.ru",
-      "children": false,
-      "permission": false
-    },
-    {
-      "id": "b700",
-      "name": "katja",
-      "email": "kaaatena@mail.ru",
-      "children": true,
       "permission": false
     }
   ]
