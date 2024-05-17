@@ -69,6 +69,13 @@
       "email": "kaaatena@mail.ru",
       "children": true,
       "permission": false
+    },
+    {
+      "id": "5108",
+      "name": "katja",
+      "email": "kaaatena@mail.ru",
+      "children": false,
+      "permission": false
     }
   ]
 }
